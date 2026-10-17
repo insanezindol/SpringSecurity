@@ -169,6 +169,7 @@ Spring MVC 관련 설정을 포함합니다:
 ```
 GET /login/login.do
 ```
+![01main.png](01main.png)
 
 ### 로그인 처리 (Spring Security 처리)
 
@@ -181,6 +182,7 @@ POST /login/loginCheck.do   (user_id, user_pwd, remember_me, _csrf)
 ```
 GET /main/main.do
 ```
+![02login.png](02login.png)
 
 ### 로그아웃
 
