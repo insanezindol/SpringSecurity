@@ -1,0 +1,353 @@
+/* ==========================================================
+   SpringSecurity 예제 - 공통 스타일 (밝고 화사한 파스텔 테마)
+   ========================================================== */
+
+:root {
+	--primary: #7c5cff;
+	--primary-dark: #6244f0;
+	--pink: #ff7eb3;
+	--peach: #ffb38a;
+	--mint: #4fd1c5;
+	--sky: #63b3ed;
+	--text: #2d2a4a;
+	--muted: #8a87a8;
+	--card: rgba(255, 255, 255, 0.85);
+	--border: #ece9ff;
+	--radius: 20px;
+	--shadow: 0 20px 50px rgba(124, 92, 255, 0.18);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+	min-height: 100%;
+}
+
+body {
+	font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif;
+	color: var(--text);
+	background:
+		radial-gradient(circle at 10% 20%, rgba(255, 179, 138, 0.55) 0, transparent 40%),
+		radial-gradient(circle at 90% 10%, rgba(255, 126, 179, 0.45) 0, transparent 40%),
+		radial-gradient(circle at 80% 90%, rgba(99, 179, 237, 0.45) 0, transparent 45%),
+		radial-gradient(circle at 15% 85%, rgba(79, 209, 197, 0.40) 0, transparent 40%),
+		#fdfbff;
+	background-attachment: fixed;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 40px 20px;
+}
+
+a {
+	color: var(--primary);
+	text-decoration: none;
+}
+
+/* ---------- 카드 ---------- */
+.card {
+	width: 100%;
+	max-width: 420px;
+	background: var(--card);
+	backdrop-filter: blur(12px);
+	border: 1px solid rgba(255, 255, 255, 0.9);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+	padding: 40px 36px;
+	animation: rise 0.5s ease-out;
+}
+
+.card.wide {
+	max-width: 760px;
+}
+
+@keyframes rise {
+	from { opacity: 0; transform: translateY(16px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+.logo {
+	width: 64px;
+	height: 64px;
+	margin: 0 auto 18px;
+	border-radius: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 30px;
+	background: linear-gradient(135deg, var(--peach), var(--pink) 50%, var(--primary));
+	box-shadow: 0 10px 24px rgba(255, 126, 179, 0.4);
+}
+
+.title {
+	margin: 0;
+	text-align: center;
+	font-size: 26px;
+	font-weight: 800;
+	background: linear-gradient(90deg, var(--primary), var(--pink));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+.subtitle {
+	margin: 8px 0 28px;
+	text-align: center;
+	color: var(--muted);
+	font-size: 14px;
+}
+
+/* ---------- 폼 ---------- */
+.field {
+	margin-bottom: 14px;
+}
+
+.field label {
+	display: block;
+	margin-bottom: 6px;
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--muted);
+}
+
+.input {
+	width: 100%;
+	padding: 13px 16px;
+	font-size: 15px;
+	color: var(--text);
+	background: #fff;
+	border: 2px solid var(--border);
+	border-radius: 12px;
+	outline: none;
+	transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input:focus {
+	border-color: var(--primary);
+	box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.15);
+}
+
+.check {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 6px 0 22px;
+	font-size: 14px;
+	color: var(--muted);
+	cursor: pointer;
+	user-select: none;
+}
+
+.check input {
+	width: 18px;
+	height: 18px;
+	accent-color: var(--primary);
+}
+
+/* ---------- 버튼 ---------- */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	padding: 12px 22px;
+	font-size: 15px;
+	font-weight: 700;
+	font-family: inherit;
+	border: none;
+	border-radius: 12px;
+	cursor: pointer;
+	transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.btn:hover {
+	transform: translateY(-2px);
+}
+
+.btn-primary {
+	width: 100%;
+	color: #fff;
+	background: linear-gradient(90deg, var(--primary), var(--pink));
+	box-shadow: 0 10px 22px rgba(124, 92, 255, 0.35);
+}
+
+.btn-primary:hover {
+	box-shadow: 0 14px 28px rgba(124, 92, 255, 0.45);
+}
+
+.btn-soft {
+	color: var(--primary-dark);
+	background: #f1edff;
+}
+
+.btn-soft:hover {
+	background: #e6dfff;
+}
+
+.btn-outline {
+	color: var(--pink);
+	background: #fff;
+	border: 2px solid #ffd3e5;
+}
+
+.btn-outline:hover {
+	background: #fff3f8;
+}
+
+/* ---------- 메시지 ---------- */
+.msg {
+	margin-top: 18px;
+	padding: 12px 16px;
+	font-size: 14px;
+	text-align: center;
+	color: #c2416f;
+	background: #fff0f6;
+	border: 1px solid #ffd3e5;
+	border-radius: 12px;
+}
+
+/* ---------- 헤더 / 정보 ---------- */
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	margin-bottom: 26px;
+}
+
+.header .title,
+.header .subtitle {
+	text-align: left;
+	margin-bottom: 0;
+}
+
+.header .subtitle {
+	margin-top: 4px;
+}
+
+.info-box {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: 18px 20px;
+	margin-bottom: 16px;
+	background: linear-gradient(135deg, #fff7f0, #fff0f7);
+	border-radius: 16px;
+}
+
+.info-box .icon {
+	font-size: 26px;
+}
+
+.info-box .label {
+	font-size: 12px;
+	color: var(--muted);
+}
+
+.info-box .value {
+	margin-top: 2px;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+/* ---------- 권한 배지 ---------- */
+.badges {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin: 8px 0 24px;
+}
+
+.badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 8px 14px;
+	font-size: 14px;
+	font-weight: 600;
+	border-radius: 999px;
+}
+
+.badge-dev   { color: #5b3fd6; background: #efeaff; }
+.badge-admin { color: #c2416f; background: #ffe9f2; }
+.badge-user  { color: #1f8f84; background: #e3faf6; }
+
+.chip {
+	display: inline-block;
+	padding: 3px 10px;
+	font-size: 12px;
+	font-family: Consolas, monospace;
+	color: var(--sky);
+	background: #eaf5fd;
+	border-radius: 999px;
+}
+
+.actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+/* ---------- 테이블 ---------- */
+.table-wrap {
+	overflow-x: auto;
+	border: 1px solid var(--border);
+	border-radius: 16px;
+	background: #fff;
+	margin-bottom: 24px;
+}
+
+.table-wrap:last-child {
+	margin-bottom: 0;
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+.table th {
+	padding: 14px 16px;
+	text-align: left;
+	font-weight: 700;
+	color: var(--primary-dark);
+	background: linear-gradient(90deg, #f3efff, #fff0f7);
+}
+
+.table td {
+	padding: 13px 16px;
+	border-top: 1px solid var(--border);
+}
+
+.table tbody tr:hover {
+	background: #fbfaff;
+}
+
+.table .empty {
+	padding: 36px 16px;
+	text-align: center;
+	color: var(--muted);
+}
+
+.icon-btn {
+	padding: 6px 10px;
+	font-size: 14px;
+	color: #c2416f;
+	background: #fff0f6;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.footer {
+	margin-top: 22px;
+	font-size: 12px;
+	color: var(--muted);
+	text-align: center;
+}

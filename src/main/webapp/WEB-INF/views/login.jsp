@@ -1,10 +1,12 @@
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/resources/css/style.css">
 <script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 	function doLogin() {
@@ -23,28 +25,33 @@
 </head>
 <body>
 
-	<h1>login page</h1>
+	<div class="card">
+		<div class="logo">🔐</div>
+		<h1 class="title">Welcome Back!</h1>
+		<p class="subtitle">계정 정보를 입력하고 로그인하세요</p>
 
-	<form name="frm" action="/login/loginCheck.do" method="post" onsubmit="return doLogin();">
-		<table>
-			<tr>
-				<td><input type="text" id="user_id" name="user_id" placeholder="아이디" /></td>
-			</tr>
-			<tr>
-				<td><input type="password" id="user_pwd" name="user_pwd" placeholder="비밀번호" /></td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" id="remember_me" name="remember_me" /> 로그인 상태 유지</td>
-			</tr>
-			<tr>
-				<td><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /><input type="submit" value="로그인" /></td>
-			</tr>
-		</table>
-	</form>
-	
-	<c:if test="${not empty msg}">
-		<div class="msg">${msg}</div>
-	</c:if>
+		<form name="frm" action="/login/loginCheck.do" method="post" onsubmit="return doLogin();">
+			<div class="field">
+				<label for="user_id">아이디</label>
+				<input type="text" id="user_id" name="user_id" class="input" placeholder="아이디" autofocus />
+			</div>
+			<div class="field">
+				<label for="user_pwd">비밀번호</label>
+				<input type="password" id="user_pwd" name="user_pwd" class="input" placeholder="비밀번호" />
+			</div>
+			<label class="check">
+				<input type="checkbox" id="remember_me" name="remember_me" /> 로그인 상태 유지
+			</label>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			<button type="submit" class="btn btn-primary">로그인</button>
+		</form>
+
+		<c:if test="${not empty msg}">
+			<div class="msg">${msg}</div>
+		</c:if>
+	</div>
+
+	<p class="footer">Spring Boot · Spring Security Example</p>
 
 </body>
 </html>
