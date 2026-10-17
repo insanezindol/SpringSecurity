@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,15 +8,15 @@
 <script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 	function doLogin() {
-		if($("#username").val() == "") {
+		if($("#user_id").val() == "") {
 			alert("아이디를 입력해주세요.");
-			return;
+			return false;
 		}
-		if($("#password").val() == "") {
+		if($("#user_pwd").val() == "") {
 			alert("패스워드를 입력해주세요.");
-			return;
+			return false;
 		}
-		frm.submit();
+		return true;
 	}
 </script>
 <title>Login</title>
@@ -25,7 +25,7 @@
 
 	<h1>login page</h1>
 
-	<form name="frm" action="/login/loginCheck.do" method="post">
+	<form name="frm" action="/login/loginCheck.do" method="post" onsubmit="return doLogin();">
 		<table>
 			<tr>
 				<td><input type="text" id="user_id" name="user_id" placeholder="아이디" /></td>
@@ -37,7 +37,7 @@
 				<td><input type="checkbox" id="remember_me" name="remember_me" /> 로그인 상태 유지</td>
 			</tr>
 			<tr>
-				<td><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /><input type="submit" value="로그인" onclick="javascript:doLogin();" /></td>
+				<td><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /><input type="submit" value="로그인" /></td>
 			</tr>
 		</table>
 	</form>
